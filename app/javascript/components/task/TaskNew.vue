@@ -8,13 +8,13 @@
         <v-card>
           <v-card-text>
             <v-form>
-              <v-text-field v-model="task.title" label="タイトル"></v-text-field>
-              <v-text-field v-model="task.content" label="内容"></v-text-field>
-              <v-text-field v-model="task.limit" label="期限"></v-text-field>
+              <FormTaskTitle></FormTaskTitle>
+              <FormTaskContent></FormTaskContent>
+              <FormTaskLimit></FormTaskLimit>
               <div class="text-center">
                 <v-btn :to="{ name: 'Top' }">キャンセル</v-btn>
                 <!-- 後で保存できるactionをtask.js内に作成 -->
-                <v-btn color="info" class="ml-2" @click="submit">保存</v-btn>
+                <v-btn color="info" class="ml-2" @click="create()">保存</v-btn>
               </div>
             </v-form>
           </v-card-text>
@@ -25,17 +25,22 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+import FormTaskTitle from '../form/FormTaskTitle'
+import FormTaskContent from '../form/FormTaskContent'
+import FormTaskLimit from '../form/FormTaskLimit'
 
 export default {
   name: 'TaskNew',
-  computed: {
-    ...mapGetters('task', [
-      'tasks',
-    ]),
-    task() {
-      return this.tasks[0]
-    }
+  components: {
+    FormTaskTitle,
+    FormTaskContent,
+    FormTaskLimit,
+  },
+  methods: {
+    ...mapActions( 'task', [
+      'create',
+    ])
   }
 }
 </script>
