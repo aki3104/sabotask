@@ -1,5 +1,9 @@
 <template>
-  <v-text-field :value="task.limit" @input="updateParams($event, 'limit')" label="期限"></v-text-field>
+  <v-text-field
+    :value="task.limit"
+    @input="updateParams($event, 'limit')"
+    label="期限"
+  ></v-text-field>
 </template>
 
 <script>
