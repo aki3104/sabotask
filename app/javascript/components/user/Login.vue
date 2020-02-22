@@ -28,8 +28,11 @@ export default {
   name: 'Login',
   computed: {
     ...mapGetters('user', [
-      'user',
-    ])
+      'users',
+    ]),
+    user() {
+      return this.users[0]
+    }
   },
   methods: {
     ...mapMutations('user', [
@@ -38,6 +41,6 @@ export default {
     updateParams(event, keyName) {
       this.update({ value: event, keyName })
     },
-  }
+  },
 }
 </script>

@@ -14,7 +14,7 @@
               <div class="text-center">
                 <v-btn :to="{ name: 'Top' }">キャンセル</v-btn>
                 <!-- 後で保存できるactionをtask.js内に作成 -->
-                <v-btn color="info" class="ml-2" @click="submit">保存</v-btn>
+                <v-btn color="info" class="ml-2" @click="submit()">保存</v-btn>
               </div>
             </v-form>
           </v-card-text>
@@ -35,7 +35,7 @@ export default {
     ]),
     task() {
       return this.tasks[0]
-    }
+    },
   }
 }
 </script>
