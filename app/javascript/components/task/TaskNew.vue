@@ -1,0 +1,37 @@
+<template>
+  <v-container text-xs-center>
+    <v-layout row wrap justify-center>
+      <v-flex xs12 class="text-center">
+        <h1>タスク追加</h1>
+      </v-flex>
+      <v-flex xs5 mt-5>
+        <v-card>
+          <v-card-text>
+            <v-form>
+              <v-text-field v-model="task.title" label="タイトル"></v-text-field>
+              <v-text-field v-model="task.content" label="内容"></v-text-field>
+              <v-text-field v-model="task.limit" label="期限"></v-text-field>
+              <div class="text-center">
+                <v-btn :to="{ name: 'Top' }">キャンセル</v-btn>
+                <v-btn color="info" class="ml-2" @click="submit">保存</v-btn>
+              </div>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  name: 'TaskNew',
+  computed: {
+    ...mapGetters('task', [
+      'task',
+    ])
+  }
+}
+</script>

@@ -1,17 +1,25 @@
 import axios from "axios";
 
 export default {
+  namespaced: true,
   state: {
-    tasks: []
+    task: {},
+    tasks: [],
   },
 
   getters: {
+    task(state) {
+      return state.task;
+    },
     tasks(state) {
       return state.tasks;
     }
   },
 
   mutations: {
+    task(state) {
+      state.tasks = payload.task;
+    },
     tasks(state) {
       state.tasks = payload.tasks;
     }
