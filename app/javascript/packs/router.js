@@ -28,7 +28,7 @@ const router = new VueRouter({
       component: TaskNew
     },
     {
-      path: '/task/index',
+      path: '/tasks/index',
       name: 'TaskIndex',
       component: TaskIndex
     },

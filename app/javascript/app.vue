@@ -11,10 +11,6 @@ import TaskNew from "./components/task/TaskNew"
 import Top from "./components/Top"
 
 export default {
-  data: function () {
-    return {
-    }
-  },
   components: {
     Header,
     TaskNew,
