@@ -42,8 +42,11 @@
     name: 'Top',
     computed: {
       ...mapGetters ('user', [
-        'user',
+        'users',
       ]),
+      user() {
+        return this.users[0]
+      }
     },
     methods: {
       ...mapMutations('user', [

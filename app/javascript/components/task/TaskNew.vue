@@ -31,8 +31,11 @@ export default {
   name: 'TaskNew',
   computed: {
     ...mapGetters('task', [
-      'task',
-    ])
+      'tasks',
+    ]),
+    task() {
+      return this.tasks[0]
+    }
   }
 }
 </script>

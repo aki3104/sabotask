@@ -4,28 +4,22 @@ export default {
   namespaced: true,
 
   state: {
-    user: {},
-    users: []
+    users: [{}],
   },
 
   getters: {
-    user(state) {
-      return state.user;
-    },
     users(state) {
       return state.users;
     }
   },
 
   mutations: {
-    user(state) {
-      state.user = payload.user;
-    },
     users(state) {
       state.users = payload.users;
     },
     update(state, { value, keyName }) {
-      state.user[keyName] = value;
+      const user = state.users[0]
+      user[keyName] = value
     }
   },
 
@@ -40,6 +34,18 @@ export default {
         .catch(error => {
           console.error(error);
         });
+    },
+
+    // users#createと紐づく
+    create(context) {
+      const user = context.state.users[0]
+      axios.post('/api/v1/users', user)
+        .then(response => {
+          context.commit('users', {users: response.data})
+        })
+        .catch(error => {
+          console.error(error)
+      })
     }
   }
 };
