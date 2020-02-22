@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import Top from '../components/Top'
 import Login from '../components/user/Login'
 import TaskNew from '../components/task/TaskNew'
+import TaskIndex from '../components/task/TaskIndex' 
 
 // Routing
 const router = new VueRouter({
@@ -25,6 +26,11 @@ const router = new VueRouter({
       path: '/tasks/new',
       name: 'TaskNew',
       component: TaskNew
+    },
+    {
+      path: '/tasks/index',
+      name: 'TaskIndex',
+      component: TaskIndex
     },
   ]
 })

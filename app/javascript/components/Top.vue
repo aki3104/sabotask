@@ -11,10 +11,12 @@
                <v-text-field :value="user.name" @input="updateParams($event, 'name')" label="ユーザー名"></v-text-field>
                <v-text-field :value="user.email" @input="updateParams($event, 'email')" label="メールアドレス"></v-text-field>
                <v-text-field type="password" :value="user.password" @input="updateParams($event, 'password')" label="パスワード"></v-text-field>
-               <v-text-field type="password" :value="user.password_confirmation" @input="updateParams($event, 'password_confirmation')" label="パスワード"></v-text-field>
+               <!-- <v-text-field type="password" :value="user.password_confirmation" @input="updateParams($event, 'password_confirmation')" label="パスワード"></v-text-field> -->
                <div class="text-center">
                  <!-- 後でusers#createに繋がるactionをuser.jsに作成 -->
                  <v-btn color="info" class="ml-2" @click="submit(user)">登録</v-btn>
+                 <!-- <v-btn @click="$router.push({ name: 'TaskIndex'})">タスク一覧</v-btn> -->
+                 <v-btn :to="{ name: 'TaskIndex' }">タスク一覧</v-btn>
                </div>
             </v-form>
               <v-card-actions>
