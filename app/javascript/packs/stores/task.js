@@ -16,6 +16,8 @@ export default {
     tasks(state) {
       state.tasks = payload.tasks;
     },
+
+    // 各フォームの値をVuexストアに渡す
     update(state, { value, keyName }) {
       const task = state.tasks[0]
       task[keyName] = value
@@ -23,7 +25,8 @@ export default {
   },
 
   actions: {
-    setTasks(context) {
+    // tasks#indexと紐づく
+    index(context) {
       axios
         .get("/api/v1/tasks")
         .then(response => {
@@ -32,6 +35,19 @@ export default {
         .catch(error => {
           console.error(error);
         });
+    },
+
+    // tasks#createと紐づく
+    create(context) {
+      alert('タスクが作成される（デモ）')
+      const task = context.state.tasks[0]
+      axios.post('/api/v1/tasks', task)
+        .then(response => {
+        context.commit('tasks', response.data)
+        })
+        .catch(error => {
+        console.error(error)
+      })
     }
   }
 };

@@ -4,7 +4,7 @@ export default {
   namespaced: true,
 
   state: {
-    users: [{}],
+    users: [{}]
   },
 
   getters: {
@@ -17,15 +17,17 @@ export default {
     users(state) {
       state.users = payload.users;
     },
+
+    // 各フォームの値をVuexストアに渡す
     update(state, { value, keyName }) {
-      const user = state.users[0]
-      user[keyName] = value
+      const user = state.users[0];
+      user[keyName] = value;
     }
   },
 
   actions: {
     // users#indexと紐づく
-    setusers(context) {
+    index(context) {
       axios
         .get("/api/v1/users")
         .then(response => {
@@ -38,14 +40,15 @@ export default {
 
     // users#createと紐づく
     create(context) {
-      const user = context.state.users[0]
-      axios.post('/api/v1/users', user)
+      const user = context.state.users[0];
+      axios
+        .post("/api/v1/users", user)
         .then(response => {
-          context.commit('users', {users: response.data})
+          context.commit("users", { users: response.data });
         })
         .catch(error => {
-          console.error(error)
-      })
+          console.error(error);
+        });
     }
   }
 };
