@@ -8,8 +8,8 @@
         <v-card>
           <v-card-text>
             <v-form>
-              <v-text-field v-model="task.title" label="タイトル"></v-text-field>
-              <v-text-field v-model="task.content" label="内容"></v-text-field>
+              <FormTaskTitle></FormTaskTitle>
+              <FormTaskContent></FormTaskContent>
               <v-text-field v-model="task.limit" label="期限"></v-text-field>
               <div class="text-center">
                 <v-btn :to="{ name: 'Top' }">キャンセル</v-btn>
@@ -26,9 +26,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import FormTaskTitle from '../form/FormTaskTitle'
+import FormTaskContent from '../form/FormTaskContent'
 
 export default {
   name: 'TaskNew',
+  components: {
+    FormTaskTitle,
+    FormTaskContent,
+  },
   computed: {
     ...mapGetters('task', [
       'tasks',

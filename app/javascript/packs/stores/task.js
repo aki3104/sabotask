@@ -15,6 +15,10 @@ export default {
   mutations: {
     tasks(state) {
       state.tasks = payload.tasks;
+    },
+    update(state, { value, keyName }) {
+      const task = state.tasks[0]
+      task[keyName] = value
     }
   },
 

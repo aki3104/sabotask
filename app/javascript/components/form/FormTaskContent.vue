@@ -1,8 +1,8 @@
 <template>
   <v-text-field
-    :value="task.title"
-    @input="updateParams($event, 'title')"
-    label="タイトル"
+    :value="task.content"
+    @input="updateParams($event, 'content')"
+    label="内容"
   ></v-text-field>
 </template>
 
@@ -10,7 +10,7 @@
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-  name: 'FormTaskTitle',
+  name: 'FormTaskContent',
   computed: {
     ...mapGetters('task', [
       'tasks'
