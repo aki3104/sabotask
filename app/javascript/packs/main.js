@@ -9,7 +9,6 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import "vuetify/dist/vuetify.min.css"
 import router from './router.js'
-import store from './store.js'
 import App from '../app.vue'
 
 Vue.use(Vuetify)
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     vuetify,
     router,
-    store,
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)

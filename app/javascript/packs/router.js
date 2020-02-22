@@ -4,8 +4,6 @@ import VueRouter from 'vue-router'
 
 // Components for router
 import Top from '../components/Top'
-import Login from '../components/user/Login'
-import TaskNew from '../components/task/TaskNew'
 
 // Routing
 const router = new VueRouter({
@@ -15,16 +13,6 @@ const router = new VueRouter({
       path: '/',
       name: 'Top',
       component: Top
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/tasks/new',
-      name: 'TaskNew',
-      component: TaskNew
     },
   ]
 })
