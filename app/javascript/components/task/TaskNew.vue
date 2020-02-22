@@ -10,7 +10,7 @@
             <v-form>
               <FormTaskTitle></FormTaskTitle>
               <FormTaskContent></FormTaskContent>
-              <v-text-field v-model="task.limit" label="期限"></v-text-field>
+              <FormTaskLimit></FormTaskLimit>
               <div class="text-center">
                 <v-btn :to="{ name: 'Top' }">キャンセル</v-btn>
                 <!-- 後で保存できるactionをtask.js内に作成 -->
@@ -28,12 +28,14 @@
 import { mapGetters } from 'vuex'
 import FormTaskTitle from '../form/FormTaskTitle'
 import FormTaskContent from '../form/FormTaskContent'
+import FormTaskLimit from '../form/FormTaskLimit'
 
 export default {
   name: 'TaskNew',
   components: {
     FormTaskTitle,
     FormTaskContent,
+    FormTaskLimit,
   },
   computed: {
     ...mapGetters('task', [
