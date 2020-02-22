@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import task from './stores/task.js'
-import user from './stores/user.js'
-
 Vue.use(Vuex)
+
+import taskStore from './stores/task.js'
+import userStore from './stores/user.js'
 
 const store = new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
 
   modules: {
-    task,
-    user,
+    taskStore,
+    userStore,
   },
 
 })
