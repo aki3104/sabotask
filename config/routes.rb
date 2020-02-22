@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :users do
-    resources :tasks
+
+  namespace :api, {format: 'json'} do
+    namespace :v1 do
+      resources :users do
+        resources :tasks
+      end
+    end
   end
 end
