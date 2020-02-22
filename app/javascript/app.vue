@@ -2,12 +2,14 @@
   <v-app id="app">
     <Header></Header>
     <p>{{ message }}</p>
+    <TaskNew></TaskNew>
     <Top></Top>
   </v-app>
 </template>
 
 <script>
 import Header from "./components/Header"
+import TaskNew from "./components/task/TaskNew"
 import Top from "./components/Top"
 
 export default {
@@ -18,6 +20,7 @@ export default {
   },
   components: {
     Header,
+    TaskNew,
     Top,
   }
 }
