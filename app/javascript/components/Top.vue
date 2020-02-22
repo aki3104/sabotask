@@ -13,6 +13,7 @@
                <v-text-field type="password" :value="user.password" @input="updateParams($event, 'password')" label="パスワード"></v-text-field>
                <v-text-field type="password" :value="user.password_confirmation" @input="updateParams($event, 'password_confirmation')" label="パスワード"></v-text-field>
                <div class="text-center">
+                 <!-- 後でusers#createに繋がるactionをuser.jsに作成 -->
                  <v-btn color="info" class="ml-2" @click="submit(user)">登録</v-btn>
                </div>
             </v-form>
@@ -43,16 +44,13 @@
       ...mapGetters ('user', [
         'user',
       ]),
-      // user() {
-      //   return {};
-      // }
     },
     methods: {
       ...mapMutations('user', [
         'update',
       ]),
       updateParams(event, keyName) {
-        this.$store.commit('update', { value: event.target.value, keyName })
+        this.update({ value: event, keyName })
       },
     }
   }

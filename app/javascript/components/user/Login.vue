@@ -36,7 +36,7 @@ export default {
       'update',
     ]),
     updateParams(event, keyName) {
-      this.$store.commit('update', { value: event.target.value, keyName })
+      this.update({ value: event, keyName })
     },
   }
 }

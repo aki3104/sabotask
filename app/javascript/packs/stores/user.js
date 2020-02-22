@@ -30,6 +30,7 @@ export default {
   },
 
   actions: {
+    // users#indexと紐づく
     setusers(context) {
       axios
         .get("/api/v1/users")

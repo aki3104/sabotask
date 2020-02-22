@@ -13,6 +13,7 @@
               <v-text-field v-model="task.limit" label="期限"></v-text-field>
               <div class="text-center">
                 <v-btn :to="{ name: 'Top' }">キャンセル</v-btn>
+                <!-- 後で保存できるactionをtask.js内に作成 -->
                 <v-btn color="info" class="ml-2" @click="submit">保存</v-btn>
               </div>
             </v-form>
