@@ -14,7 +14,7 @@ export default {
   },
   
   mutations: {
-    users(state) {
+    users(state, payload) {
       state.users = payload.users;
     },
 
