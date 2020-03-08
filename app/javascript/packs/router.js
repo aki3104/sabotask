@@ -7,7 +7,7 @@ import Top from '../components/Top'
 import Login from '../components/user/Login'
 import TaskNew from '../components/task/TaskNew'
 import TaskIndex from '../components/task/TaskIndex' 
-import Useredit from '../components/user/userEdit' 
+import UserEdit from '../components/user/UserEdit' 
 
 // Routing
 const router = new VueRouter({
@@ -34,9 +34,9 @@ const router = new VueRouter({
       component: TaskIndex
     },
     {
-      path: '/user/edit',
-      name: 'Useredit',
-      component: Useredit
+      path: '/user/:id/Edit',
+      name: 'UserEdit',
+      component: UserEdit
     },
   ]
 })

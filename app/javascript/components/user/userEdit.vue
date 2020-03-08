@@ -24,16 +24,16 @@
 </template>
 
 <script>
-import FormUseredit from '../form/FormUseredit'
+import FormUserEdit from '../form/FormUserEdit'
 
 export default {
   name: 'loginUser',
   components: {
-    FormUseredit,
+    FormUserEdit,
   },
   data () {
     return {
-      FormUseredit: false,
+      FormUserEdit: false,
     }
   },
   created () {
