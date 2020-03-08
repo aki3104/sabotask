@@ -34,7 +34,7 @@ const router = new VueRouter({
       component: TaskIndex
     },
     {
-      path: '/user/:id/Edit',
+      path: '/user/:id/edit',
       name: 'UserEdit',
       component: UserEdit
     },
