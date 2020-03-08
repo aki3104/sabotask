@@ -5,6 +5,9 @@
         <h1>タスク一覧</h1>
       </v-flex>
       <v-flex xs12 mt-5 text-xs-right>
+      <div class=“text-center”>
+        <v-btn :to="{ name: 'Useredit' }">プロフィール編集</v-btn>
+      </div>
         <router-link :to="{name: 'TaskNew'}">
           <v-btn color="info">タスクの追加</v-btn>
         </router-link>
