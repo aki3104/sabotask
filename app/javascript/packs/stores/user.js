@@ -12,9 +12,9 @@ export default {
       return state.users;
     }
   },
-
+  
   mutations: {
-    users(state) {
+    users(state, payload) {
       state.users = payload.users;
     },
 

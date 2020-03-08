@@ -1,9 +1,7 @@
 <template>
   <v-app id="app">
     <Header></Header>
-    <p>{{ message }}</p>
-    <TaskNew></TaskNew>
-    <Top></Top>
+    <router-view></router-view>
   </v-app>
 </template>
 
@@ -13,11 +11,6 @@ import TaskNew from "./components/task/TaskNew"
 import Top from "./components/Top"
 
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  },
   components: {
     Header,
     TaskNew,

@@ -4,6 +4,11 @@ export default {
   namespaced: true,
   state: {
     tasks: [{}],
+    headers: [{
+      text: 'タスク',
+      value: 'task' 
+    },
+  ],
   },
 
   getters: {
