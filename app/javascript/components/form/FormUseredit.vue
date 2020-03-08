@@ -26,7 +26,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click="dialog = false" dark>キャンセル</v-btn>
-          <v-btn color="blue darken-1" flat @click="UserUpdate" dark>更新</v-btn>
+          <v-btn color="blue darken-1" flat @click="userUpdate" dark>更新</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -46,7 +46,7 @@ export default {
   created () {
   },
   methods: {
-    UserUpdate() {
+    userUpdate() {
       alert('次回更新アクションを追加する')
     },
   },
