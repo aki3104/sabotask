@@ -26,6 +26,7 @@ export default {
     updateParams(event, keyName) {
       this.update({ value: event, keyName })
     },
+    
   },
 }
 </script>
