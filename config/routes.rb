@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
+
   namespace :api do
     namespace :v1 do
-      get 'sessions/create'
-      get 'sessions/destroy'
+      post 'login', to: 'sessions#create'
+      delete 'logout', to: 'sessions#destroy'
     end
   end
-  root to: 'home#index'
 
   namespace :api, {format: 'json'} do
     namespace :v1 do
@@ -14,4 +15,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '*path', to: 'home#redirect_to_root'
 end
