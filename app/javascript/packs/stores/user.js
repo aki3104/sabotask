@@ -5,16 +5,11 @@ export default {
 
   state: {
     users: [{}],
-    drawer: null,
   },
 
   getters: {
     users(state) {
       return state.users;
-    },
-
-    sideDrawer(state) {
-      return state.drawer;
     }
   },  
   
@@ -29,10 +24,6 @@ export default {
       user[keyName] = value;
     },
 
-    //サイドメニューの開閉制御
-    formSideMenu(state) {
-      state.drawer = !state.drawer
-    },
     //stateのuserを削除
     deleteUsers(state) {
       state.users = [{}]

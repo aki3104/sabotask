@@ -10,9 +10,7 @@
             <v-list-item-title>sabotask</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
         <v-divider></v-divider>
-
         <v-list-item v-for="(item, index) in items" :key="index">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -27,7 +25,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   data () {
@@ -40,9 +38,18 @@ export default {
   },
   computed: {
   //サイドメニューのdrawerを取得
-  ...mapGetters ('user', [
-    'sideDrawer',
-  ])
+    ...mapGetters ('session', [
+      'sideDrawer',
+    ])
+  //v-modelで双方向バインディング案
+    // sideDrawer: {
+    //   get() {
+    //   },
+    //   set(value) {
+    //   }
+    // },
+  },
+  methods: {
   }
 }
 </script>

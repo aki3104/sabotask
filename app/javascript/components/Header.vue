@@ -32,12 +32,8 @@ import FormSideMenuVue from './form/FormSideMenu.vue'
         'logout',
       ]),
       //ストアのサイドメニューの表示・非表示の管理
-      ...mapMutations('user', [
+      ...mapMutations('session', [
         'formSideMenu',
-      ]),
-      //サイドメニューのdrawerを取得
-      ...mapGetters ('user', [
-        'sideDrawer',
       ]),
     },
     computed: {

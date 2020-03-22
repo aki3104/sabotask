@@ -2,7 +2,8 @@ export default {
   namespaced: true,
 
   state: {
-    loginned: false
+    loginned: false,
+    drawer: null,
   },
   mutations: {
     login(state) {
@@ -11,10 +12,21 @@ export default {
     logout(state) {
       state.loginned = false;
     },
+    //サイドメニューの開閉制御
+    formSideMenu(state) {
+      state.drawer = !state.drawer
+    },
+    // 各フォームの値をVuexストアに渡す
+    // updateDrawer(state, { value }) {
+    //   state.drawer = value;
+    // },
   },
   getters: {
     loginned(state) {
       return state.loginned;
     },
+    sideDrawer(state) {
+      return state.drawer;
+    }
   }
 }
