@@ -9,7 +9,7 @@
           sabotask
         </router-link>
       </v-toolbar-title>
-      <v-toolbar-items v-if="userLogin">
+      <v-toolbar-items v-if="loginStatus">
         <v-btn text 
         @click="logout(users[0], $router.push({name: 'Top'}))"
         >ログアウト</v-btn>
@@ -39,7 +39,7 @@ import FormSideMenuVue from './form/FormSideMenu.vue'
         'sideDrawer',
       ]),
       ...mapGetters('sessions', [
-        'userLogin',
+        'loginStatus',
       ]),
     },
     computed: {

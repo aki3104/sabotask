@@ -14,7 +14,6 @@ export default {
     },
 
     sideDrawer(state) {
-      console.log(state.drawer)
       return state.drawer;
     }
   },  
@@ -33,11 +32,9 @@ export default {
     //再度メニューの開閉制御
     formSideMenu(state) {
       state.drawer = !state.drawer
-      console.log(state.drawer)
     },
     //stateのuserを削除
     deleteUsers(state) {
-      console.log(state.users)
       state.users = [{}]
     }
   },
@@ -58,6 +55,8 @@ export default {
     // users#createと紐づく
     create(context, routeTo) {
       const user = context.state.users[0];
+      //session.jsでユーザーのログイン状態の管理
+      context.commit('session/login', null, {root: true} )
       axios
         .post("/api/v1/users", user)
         .then(response => {
@@ -85,6 +84,8 @@ export default {
 
     // sessions#createと紐づく
     login(context, user, routeTo) {
+      //session.jsでユーザーのログイン状態の管理
+      context.commit('session/login', null, {root: true} )
       axios
         .post("/api/v1/login", user)
         .then(response => {
@@ -97,6 +98,7 @@ export default {
     },
     logout(context, user, routeTo ) {
       context.commit('deleteUsers')
+      commit('session/logout', null, {root: true})
       axios
         .post("/api/v1/logout", user)
         .then(response => {
