@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_013621) do
+ActiveRecord::Schema.define(version: 2020_03_22_034702) do
+
+  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "goal"
+    t.integer "week"
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
@@ -30,4 +37,5 @@ ActiveRecord::Schema.define(version: 2020_02_22_013621) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "goals", "users"
 end
