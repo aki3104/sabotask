@@ -12,13 +12,13 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field label="ユーザー名" required></v-text-field>
+                <v-text-field label="ユーザー名" required :placeholder="users[0].name"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Email*" required></v-text-field>
+                <v-text-field label="Email*" required :placeholder="users[0].email"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Password*" type="password" required></v-text-field>
+                <v-text-field label="Password*" type="password" required :placeholder="users[0].password"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -44,6 +44,7 @@ export default {
     }
   },
   created () {
+    console.log(this.users)
   },
   methods: {
     userUpdate() {
