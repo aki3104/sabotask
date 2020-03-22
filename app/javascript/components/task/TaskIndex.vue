@@ -6,8 +6,8 @@
       </v-flex>
       <v-flex xs12 mt-5 text-xs-right>
       <div class=“text-center”>
+        <FormSideMenu />
         <UserEdit/>
-        <!-- <v-btn :to="{ name: 'FormUserEdit' }">プロフィール編集</v-btn> -->
       </div>
       <v-btn :to= "{name: 'TaskNew'}" color="info">タスクの追加</v-btn>
       </v-flex>
@@ -15,7 +15,6 @@
         <v-data-table :headers='headers' :items='tasks'>
           <template v-slot:items="props">
             <td class="text-xs-left">{{ props.item.task }}</td>
-            <!-- <v-icon small class="mr-2" @click="delete">mdi-delete</v-icon> -->
           </template>
         </v-data-table>
       </v-flex>
@@ -26,10 +25,12 @@
 <script>
 import { mapActions } from 'vuex'
 import UserEdit from '../form/FormUserEdit'
+import FormSideMenu from '../form/FormSideMenu'
 
 export default {
   components: {
-    UserEdit
+    UserEdit,
+    FormSideMenu
   },
   created () {
   },

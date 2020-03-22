@@ -4,14 +4,20 @@ export default {
   namespaced: true,
 
   state: {
-    users: [{}]
+    users: [{}],
+    drawer: null
   },
 
   getters: {
     users(state) {
       return state.users;
+    },
+
+    sideDrawer(state) {
+      console.log(state.drawer)
+      return state.drawer;
     }
-  },
+  },  
   
   mutations: {
     users(state, payload) {
@@ -22,6 +28,12 @@ export default {
     update(state, { value, keyName }) {
       const user = state.users[0];
       user[keyName] = value;
+    },
+
+    //再度メニューの開閉制御
+    formSideMenu(state) {
+      state.drawer = !state.drawer
+      console.log(state.drawer)
     }
   },
 

@@ -1,8 +1,6 @@
 <template>
   <v-container fluid fill-height>
-    <v-btn color="pink" dark @click.stop="drawer = !drawer">Toggle</v-btn>
-
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer :value="sideDrawer" absolute temporary>
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
@@ -29,15 +27,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
-      drawer: null,
       items: [
         { title: 'Home', icon: 'dashboard' },
         { title: 'About', icon: 'question_answer' },
-      ],
+      ]
     }
   },
+  computed: {
+  //再度メニューのdrawerを取得
+  ...mapGetters ('user', [
+    'sideDrawer',
+  ])
+  }
 }
 </script>
