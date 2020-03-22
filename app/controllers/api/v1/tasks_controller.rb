@@ -1,6 +1,7 @@
 class Api::V1::TasksController < ApplicationController
+    protect_from_forgery except: [:create]
     def index
-        tasks = Task.all
+        tasks = @current_user.tasks
         render json: tasks, status: :ok
     end
 

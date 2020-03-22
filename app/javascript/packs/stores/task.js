@@ -18,7 +18,7 @@ export default {
   },
 
   mutations: {
-    tasks(state) {
+    tasks(state, payload) {
       state.tasks = payload.tasks;
     },
 
@@ -32,8 +32,9 @@ export default {
   actions: {
     // tasks#indexと紐づく
     index(context) {
+      const user_id = context.rootState.user.users.id
       axios
-        .get("/api/v1/tasks")
+        .get(`/api/v1/users/${user_id}/tasks`)
         .then(response => {
           context.commit("tasks", { tasks: response.data });
         })
@@ -46,7 +47,8 @@ export default {
     create(context) {
       alert('タスクが作成される（デモ）')
       const task = context.state.tasks[0]
-      axios.post('/api/v1/tasks', task)
+      const user_id = context.rootState.user.users.id
+      axios.post(`/api/v1/users/${user_id}/tasks`, task)
         .then(response => {
         context.commit('tasks', response.data)
         })
