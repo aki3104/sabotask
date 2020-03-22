@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
@@ -11,6 +13,6 @@ class Api::V1::SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to root
+    redirect_to root_path
   end
 end

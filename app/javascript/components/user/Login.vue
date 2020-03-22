@@ -13,7 +13,7 @@
                <div class=“text-center”>
                  <v-btn
                   :to="{ name: 'Login' }"
-                  @click="login"
+                  @click="login(users[0], $router.push('/'))"
                   >ログイン</v-btn>
                </div>
             </v-form>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import axios from 'axios'
 
 export default {
@@ -42,21 +42,12 @@ export default {
     ...mapMutations('user', [
       'update',
     ]),
+    ...mapActions('user', [
+      'login',
+    ]),
     updateParams(event, keyName) {
       this.update({ value: event, keyName })
     },
-    login() {
-      user = this.users[0]
-      console.log(user)
-      axios
-        .post('/api/v1/login', user)
-        .then(response => {
-          context.commit("users", { users: response.data });
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
   },
 }
 </script>

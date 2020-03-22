@@ -49,7 +49,20 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    }
+    },
+
+    // sessions#createと紐づく
+    login(context, user, routeTo) {
+      axios
+        .post("/api/v1/login", user)
+        .then(response => {
+          context.commit("users", { users: response.data });
+          routeTo
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
   },
   
 };
