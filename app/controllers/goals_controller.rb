@@ -11,6 +11,18 @@ class GoalsController < ApplicationController
         end
     end
 
+    def destroy
+        user = User.find(session[:user_id])
+        goal = user.goals.find_by(active_flag: true)
+
+        # goalは論理削除
+        if goal.update(active_flag: false)
+            render json: goal, status: :ok
+        else
+            render json: { errors: goal.errors.full_messages }, status: :internal_server_error
+        end
+    end
+
     def goal_params
         params.require(:goals).permit(:user_id, :goal, :week, :active_flag)
     end
