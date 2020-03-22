@@ -12,7 +12,6 @@
                <v-text-field :value="user.email" @input="updateParams($event, 'email')" label="メールアドレス"></v-text-field>
                <v-text-field type="password" :value="user.password" @input="updateParams($event, 'password')" label="パスワード"></v-text-field>
                <v-text-field type="password" :value="user.password_confirmation" @input="updateParams($event, 'password_confirmation')" label="パスワード(確認)"></v-text-field>
-               <!-- <v-text-field type="password" :value="user.password_confirmation" @input="updateParams($event, 'password_confirmation')" label="パスワード"></v-text-field> -->
                <div class="text-center">
                  <!-- 後でusers#createに繋がるactionをuser.jsに作成 -->
                  <v-btn color="info" class="ml-2" @click="create(user, $router.push({ name: 'TaskIndex' }))">登録</v-btn>
@@ -56,6 +55,7 @@
       ...mapActions('user', [
         'create',
       ]),
+      //store内のステートの情報を取得
       updateParams(event, keyName) {
         this.update({ value: event, keyName })
       },

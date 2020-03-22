@@ -1,5 +1,6 @@
 <template>
   <v-layout row justify-center>
+    <FormSidemenu />
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on }">
         <v-btn color="primary" dark v-on="on">Open Profile</v-btn>
@@ -12,21 +13,20 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field label="ユーザー名" required></v-text-field>
+                <v-text-field :value="user.name" @input="updateParams($event, 'name')" label="ユーザー名"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Email*" required></v-text-field>
+                <v-text-field :value="user.email" @input="updateParams($event, 'email')" label="メールアドレス"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Password*" type="password" required></v-text-field>
+                <v-text-field type="password" :value="user.password" @input="updateParams($event, 'password')" label="パスワード"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="dialog = false" dark>キャンセル</v-btn>
-          <v-btn color="blue darken-1" flat @click="userUpdate" dark>更新</v-btn>
+          <v-btn color="blue darken-1" @click="dialog = false" dark>更新</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -34,9 +34,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions,mapMutations,mapGetters } from 'vuex'
+import FormSideMenu from './FormSideMenu'
 
 export default {
+  components: {
+    FormSideMenu
+  },
   data() {
     return {
       dialog: false,
@@ -45,16 +49,22 @@ export default {
   },
   created () {
   },
-  methods: {
-    userUpdate() {
-      alert('次回更新アクションを追加する')
+    methods: {
+      ...mapMutations('user', [
+        'update',
+      ]),
+      //store内のステートの情報を取得
+      updateParams(event, keyName) {
+        this.update({ value: event, keyName })
+      },
     },
-  },
-  computed: {
-    ...mapGetters('user', [
-      'users',
-    ]),
-  
-  }
+    computed: {
+      ...mapGetters ('user', [
+        'users',
+      ]),
+      user() {
+        return this.users[0]
+      }
+    },
 }
 </script>
