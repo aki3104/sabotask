@@ -29,7 +29,7 @@ export default {
       user[keyName] = value;
     },
 
-    //再度メニューの開閉制御
+    //サイドメニューの開閉制御
     formSideMenu(state) {
       state.drawer = !state.drawer
     },
@@ -98,9 +98,9 @@ export default {
     },
     logout(context, user, routeTo ) {
       context.commit('deleteUsers')
-      commit('session/logout', null, {root: true})
+      context.commit('session/logout', null, {root: true})
       axios
-        .post("/api/v1/logout", user)
+        .delete("/api/v1/logout", user)
         .then(response => {
           context.commit("users", { users: response.data });
           routeTo

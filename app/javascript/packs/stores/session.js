@@ -2,21 +2,19 @@ export default {
   namespaced: true,
 
   state: {
-    loginStatus: false
+    loginned: false
   },
   mutations: {
     login(state) {
-      state.loginStatus = true;
+      state.loginned = true;
     },
     logout(state) {
-      console.log(loginStatus)
-      state.loginStatus = false;
+      state.loginned = false;
     },
   },
   getters: {
-    loginStatus(state) {
-      console.log(state.loginStatus)
-      return state.loginStatus;
+    loginned(state) {
+      return state.loginned;
     },
   }
 }

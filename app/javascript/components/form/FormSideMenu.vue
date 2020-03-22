@@ -39,7 +39,7 @@ export default {
     }
   },
   computed: {
-  //再度メニューのdrawerを取得
+  //サイドメニューのdrawerを取得
   ...mapGetters ('user', [
     'sideDrawer',
   ])
