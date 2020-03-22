@@ -39,17 +39,32 @@ export default {
     },
 
     // users#createと紐づく
-    create(context) {
+    create(context, routeTo) {
       const user = context.state.users[0];
+      console.log(user)
       axios
         .post("/api/v1/users", user)
         .then(response => {
           context.commit("users", { users: response.data });
+          routeTo
         })
         .catch(error => {
           console.error(error);
         });
-    }
+    },
+
+    // sessions#createと紐づく
+    login(context, user, routeTo) {
+      axios
+        .post("/api/v1/login", user)
+        .then(response => {
+          context.commit("users", { users: response.data });
+          routeTo
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
   },
   
 };
