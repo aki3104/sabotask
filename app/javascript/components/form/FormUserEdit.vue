@@ -13,15 +13,12 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <!-- <v-text-field label="ユーザー名" required :placeholder="users[0].name"></v-text-field> -->
                 <v-text-field :value="user.name" @input="updateParams($event, 'name')" label="ユーザー名"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <!-- <v-text-field label="Email*" required :placeholder="users[0].email"></v-text-field> -->
                 <v-text-field :value="user.email" @input="updateParams($event, 'email')" label="メールアドレス"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <!-- <v-text-field label="Password*" type="password" required :placeholder="users[0].password"></v-text-field> -->
                 <v-text-field type="password" :value="user.password" @input="updateParams($event, 'password')" label="パスワード"></v-text-field>
               </v-flex>
             </v-layout>
@@ -38,7 +35,7 @@
 
 <script>
 import { mapActions,mapMutations,mapGetters } from 'vuex'
-import FormSidemenu from './FormSidemenu'
+import FormSidemenu from './FormSideMenu'
 
 export default {
   components: {
@@ -55,9 +52,6 @@ export default {
     methods: {
       ...mapMutations('user', [
         'update',
-      ]),
-      ...mapActions('user', [
-        'create',
       ]),
       //store内のステートの情報を取得
       updateParams(event, keyName) {

@@ -56,7 +56,6 @@
       ]),
       //store内のステートの情報を取得
       updateParams(event, keyName) {
-        console.log(event)
         this.update({ value: event, keyName })
       },
     }
