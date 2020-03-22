@@ -8,10 +8,13 @@
         <v-card>
           <v-card-text>
             <v-form>
-               <v-text-field :value="user.email" label=“メールアドレス“></v-text-field>
-               <v-text-field type="password" v-model="user.password" label=“パスワード“></v-text-field>
+               <v-text-field :value="user.email" @input="updateParams($event, 'email')" label="メールアドレス"></v-text-field>
+               <v-text-field type="password" :value="user.password" @input="updateParams($event, 'password')" label="パスワード"></v-text-field>
                <div class=“text-center”>
-                 <v-btn :to="{ name: 'Login' }">ログイン</v-btn>
+                 <v-btn
+                  :to="{ name: 'Login' }"
+                  @click="login"
+                  >ログイン</v-btn>
                </div>
             </v-form>
           </v-card-text>
@@ -23,6 +26,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import axios from 'axios'
 
 export default {
   name: 'Login',
@@ -41,6 +45,18 @@ export default {
     updateParams(event, keyName) {
       this.update({ value: event, keyName })
     },
+    login() {
+      user = this.users[0]
+      console.log(user)
+      axios
+        .post('/api/v1/login', user)
+        .then(response => {
+          context.commit("users", { users: response.data });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   },
 }
 </script>

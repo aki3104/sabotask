@@ -3,6 +3,6 @@ class HomeController < ApplicationController
   end
 
   def redirect_to_root
-    redirect_to root
+    redirect_to root_path
   end
 end
