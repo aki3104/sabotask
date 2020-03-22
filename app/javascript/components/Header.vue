@@ -9,12 +9,17 @@
           sabotask
         </router-link>
       </v-toolbar-title>
+      <v-toolbar-items v-if="userLogin">
+        <v-btn text 
+        @click="logout(users[0], $router.push({name: 'Top'}))"
+        >ログアウト</v-btn>
+      </v-toolbar-items>
     </v-app-bar>
   </header>
 </template>
 
 <script>
-import { mapMutations,mapGetters } from 'vuex'
+import { mapActions,mapMutations,mapGetters } from 'vuex'
 import FormSideMenuVue from './form/FormSideMenu.vue'
 
   export default {
@@ -22,12 +27,24 @@ import FormSideMenuVue from './form/FormSideMenu.vue'
     created () {
     },
     methods: {
+      ...mapActions('user', [
+        'logout',
+      ]),
+      //ストアの再度メニューの表示・非表示の管理
       ...mapMutations('user', [
         'formSideMenu',
       ]),
       //再度メニューのdrawerを取得
       ...mapGetters ('user', [
         'sideDrawer',
+      ]),
+      ...mapGetters('sessions', [
+        'userLogin',
+      ]),
+    },
+    computed: {
+      ...mapGetters ('user', [
+        'users',
       ]),
     }
   }

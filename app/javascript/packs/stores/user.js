@@ -5,7 +5,7 @@ export default {
 
   state: {
     users: [{}],
-    drawer: null
+    drawer: null,
   },
 
   getters: {
@@ -34,6 +34,11 @@ export default {
     formSideMenu(state) {
       state.drawer = !state.drawer
       console.log(state.drawer)
+    },
+    //stateのuserを削除
+    deleteUsers(state) {
+      console.log(state.users)
+      state.users = [{}]
     }
   },
 
@@ -82,6 +87,18 @@ export default {
     login(context, user, routeTo) {
       axios
         .post("/api/v1/login", user)
+        .then(response => {
+          context.commit("users", { users: response.data });
+          routeTo
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    logout(context, user, routeTo ) {
+      context.commit('deleteUsers')
+      axios
+        .post("/api/v1/logout", user)
         .then(response => {
           context.commit("users", { users: response.data });
           routeTo
