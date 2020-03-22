@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_084207) do
     t.bigint "user_id"
     t.string "goal"
     t.integer "week"
+    t.boolean "active_flag", default: true
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
