@@ -35,11 +35,11 @@
 
 <script>
 import { mapActions,mapMutations,mapGetters } from 'vuex'
-import FormSidemenu from './FormSideMenu'
+import FormSideMenu from './FormSideMenu'
 
 export default {
   components: {
-    FormSidemenu
+    FormSideMenu
   },
   data() {
     return {
