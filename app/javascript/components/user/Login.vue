@@ -12,6 +12,10 @@
                <v-text-field type="password" v-model="user.password" label=“パスワード“></v-text-field>
                <div class=“text-center”>
                  <v-btn :to="{ name: 'Login' }">ログイン</v-btn>
+                  <v-btn
+                  :to="{ name: 'Login' }"
+                  @click="login(users[0], $router.push('/'))"
+                  >ログイン</v-btn>
                </div>
             </v-form>
           </v-card-text>

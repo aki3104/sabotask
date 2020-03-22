@@ -1,5 +1,6 @@
 <template>
   <v-layout row justify-center>
+    <FormSidemenu />
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on }">
         <v-btn color="primary" dark v-on="on">Open Profile</v-btn>
@@ -28,7 +29,6 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" @click="dialog = false" dark>キャンセル</v-btn>
           <v-btn color="blue darken-1" @click="dialog = false" dark>更新</v-btn>
         </v-card-actions>
       </v-card>
@@ -38,8 +38,12 @@
 
 <script>
 import { mapActions,mapMutations,mapGetters } from 'vuex'
+import FormSidemenu from './FormSidemenu'
 
 export default {
+  components: {
+    FormSidemenu
+  },
   data() {
     return {
       dialog: false,
@@ -47,7 +51,6 @@ export default {
     }
   },
   created () {
-    console.log(this.user)
   },
     methods: {
       ...mapMutations('user', [
