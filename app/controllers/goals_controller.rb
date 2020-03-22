@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
         user = User.find(session[:user_id])
         goal = user.goals.build(goal_params)
 
-        if gola.save
+        if goal.save
           render json: goal, status: :created
         else
           render json: { errors: goal.errors.full_messages }, status: :internal_server_error
