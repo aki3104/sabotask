@@ -13,7 +13,7 @@
                <div class=“text-center”>
                  <v-btn
                   :to="{ name: 'Login' }"
-                  @click="login(users[0], $router.push('/'))"
+                  @click="login(users[0], $router.push({name: 'TaskIndex'}))"
                   >ログイン</v-btn>
                </div>
             </v-form>
