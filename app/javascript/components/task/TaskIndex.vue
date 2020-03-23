@@ -6,8 +6,8 @@
       </v-flex>
       <v-flex xs12 mt-5 text-xs-right>
       <div class=“text-center”>
+        <FormSideMenu />
         <UserEdit/>
-        <!-- <v-btn :to="{ name: 'FormUserEdit' }">プロフィール編集</v-btn> -->
       </div>
       <v-btn :to= "{name: 'TaskNew'}" color="info">タスクの追加</v-btn>
       </v-flex>
@@ -31,10 +31,12 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import UserEdit from '../form/FormUserEdit'
+import FormSideMenu from '../form/FormSideMenu'
 
 export default {
   components: {
-    UserEdit
+    UserEdit,
+    FormSideMenu
   },
   computed: {
     ...mapGetters( 'task', [
