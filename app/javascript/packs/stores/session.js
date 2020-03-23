@@ -16,10 +16,6 @@ export default {
     formSideMenu(state) {
       state.drawer = !state.drawer
     },
-    // 各フォームの値をVuexストアに渡す
-    // updateDrawer(state, { value }) {
-    //   state.drawer = value;
-    // }, 
   },
   getters: {
     loginned(state) {
