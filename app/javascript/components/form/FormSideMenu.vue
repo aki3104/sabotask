@@ -1,6 +1,6 @@
 <template>
   <v-container fluid fill-height>
-    <v-navigation-drawer :value="sideDrawer" absolute temporary>
+    <v-navigation-drawer v-model="$store.state.session.drawer" absolute temporary>
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
@@ -37,18 +37,7 @@ export default {
     }
   },
   computed: {
-  //サイドメニューのdrawerを取得
-    ...mapGetters ('session', [
-      'sideDrawer',
-    ])
-  //v-modelで双方向バインディング案
-    // sideDrawer: {
-    //   get() {
-    //   },
-    //   set(value) {
-    //   }
-    // },
-  },
+    },
   methods: {
   }
 }

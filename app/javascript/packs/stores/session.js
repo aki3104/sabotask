@@ -3,7 +3,7 @@ export default {
 
   state: {
     loginned: false,
-    drawer: null,
+    drawer: false,
   },
   mutations: {
     login(state) {
@@ -19,7 +19,7 @@ export default {
     // 各フォームの値をVuexストアに渡す
     // updateDrawer(state, { value }) {
     //   state.drawer = value;
-    // },
+    // }, 
   },
   getters: {
     loginned(state) {
