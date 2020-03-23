@@ -81,6 +81,7 @@ export default {
         .post("/api/v1/login", user)
         .then(response => {
           context.commit("users", { users: response.data });
+          context.dispatch("task/index", null, { root: true }); 
           routeTo
         })
         .catch(error => {
